@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F8F4F89D1F36E01D00E9F451 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4F89C1F36E01D00E9F451 /* AppDelegate.m */; };
+		F8F4F8A01F36E01D00E9F451 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4F89F1F36E01D00E9F451 /* main.m */; };
+		F8F4F9061F37145B00E9F451 /* AdminOnDemand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F4F8FB1F37128D00E9F451 /* AdminOnDemand.framework */; };
+		F8F4F94C1F37184B00E9F451 /* AdminOnDemand.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8F4F8FB1F37128D00E9F451 /* AdminOnDemand.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8F4F95B1F37262500E9F451 /* AdminOnDemandHelper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8F4F9211F3717A600E9F451 /* AdminOnDemandHelper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F8F4F8FA1F37128D00E9F451 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8F4F8F61F37128D00E9F451 /* AdminOnDemand.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8F4F8EB1F37125300E9F451;
+			remoteInfo = AdminOnDemand;
+		};
+		F8F4F9201F3717A600E9F451 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8F4F91C1F3717A500E9F451 /* AdminOnDemandHelper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8F4F9111F3717A500E9F451;
+			remoteInfo = AdminOnDemandHelper;
+		};
+		F8F4F95C1F3726F200E9F451 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8F4F91C1F3717A500E9F451 /* AdminOnDemandHelper.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8F4F9101F3717A500E9F451;
+			remoteInfo = AdminOnDemandHelper;
+		};
+		F8F4F95E1F3726F200E9F451 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8F4F8F61F37128D00E9F451 /* AdminOnDemand.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8F4F8EA1F37125300E9F451;
+			remoteInfo = AdminOnDemand;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F8F4F8C61F37046800E9F451 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F8F4F95B1F37262500E9F451 /* AdminOnDemandHelper.framework in Embed Frameworks */,
+				F8F4F94C1F37184B00E9F451 /* AdminOnDemand.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F8F4F8981F36E01D00E9F451 /* AdminOnDemand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdminOnDemand.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8F4F89B1F36E01D00E9F451 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F8F4F89C1F36E01D00E9F451 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F8F4F89F1F36E01D00E9F451 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F8F4F8A91F36E01D00E9F451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8F4F8F61F37128D00E9F451 /* AdminOnDemand.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AdminOnDemand.xcodeproj; path = AdminOnDemandFramework/AdminOnDemand.xcodeproj; sourceTree = "<group>"; };
+		F8F4F91C1F3717A500E9F451 /* AdminOnDemandHelper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AdminOnDemandHelper.xcodeproj; path = AdminOnDemandHelper/AdminOnDemandHelper.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F8F4F8951F36E01D00E9F451 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8F4F9061F37145B00E9F451 /* AdminOnDemand.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F8F4F88F1F36E01D00E9F451 = {
+			isa = PBXGroup;
+			children = (
+				F8F4F91C1F3717A500E9F451 /* AdminOnDemandHelper.xcodeproj */,
+				F8F4F8F61F37128D00E9F451 /* AdminOnDemand.xcodeproj */,
+				F8F4F89A1F36E01D00E9F451 /* AdminOnDemand */,
+				F8F4F8991F36E01D00E9F451 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F8F4F8991F36E01D00E9F451 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8F4F8981F36E01D00E9F451 /* AdminOnDemand.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8F4F89A1F36E01D00E9F451 /* AdminOnDemand */ = {
+			isa = PBXGroup;
+			children = (
+				F8F4F89B1F36E01D00E9F451 /* AppDelegate.h */,
+				F8F4F89C1F36E01D00E9F451 /* AppDelegate.m */,
+				F8F4F8A91F36E01D00E9F451 /* Info.plist */,
+				F8F4F89E1F36E01D00E9F451 /* Supporting Files */,
+			);
+			path = AdminOnDemand;
+			sourceTree = "<group>";
+		};
+		F8F4F89E1F36E01D00E9F451 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F8F4F89F1F36E01D00E9F451 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F8F4F8F71F37128D00E9F451 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8F4F8FB1F37128D00E9F451 /* AdminOnDemand.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8F4F91D1F3717A500E9F451 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8F4F9211F3717A600E9F451 /* AdminOnDemandHelper.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F8F4F8971F36E01D00E9F451 /* AdminOnDemand */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8F4F8AC1F36E01D00E9F451 /* Build configuration list for PBXNativeTarget "AdminOnDemand" */;
+			buildPhases = (
+				F8F4F8941F36E01D00E9F451 /* Sources */,
+				F8F4F8951F36E01D00E9F451 /* Frameworks */,
+				F8F4F8961F36E01D00E9F451 /* Resources */,
+				F8F4F8C61F37046800E9F451 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8F4F95D1F3726F200E9F451 /* PBXTargetDependency */,
+				F8F4F95F1F3726F200E9F451 /* PBXTargetDependency */,
+			);
+			name = AdminOnDemand;
+			productName = AdminOnDemand;
+			productReference = F8F4F8981F36E01D00E9F451 /* AdminOnDemand.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F8F4F8901F36E01D00E9F451 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Yoann Gini";
+				TargetAttributes = {
+					F8F4F8971F36E01D00E9F451 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F8F4F8931F36E01D00E9F451 /* Build configuration list for PBXProject "AdminOnDemand" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F8F4F88F1F36E01D00E9F451;
+			productRefGroup = F8F4F8991F36E01D00E9F451 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F8F4F8F71F37128D00E9F451 /* Products */;
+					ProjectRef = F8F4F8F61F37128D00E9F451 /* AdminOnDemand.xcodeproj */;
+				},
+				{
+					ProductGroup = F8F4F91D1F3717A500E9F451 /* Products */;
+					ProjectRef = F8F4F91C1F3717A500E9F451 /* AdminOnDemandHelper.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				F8F4F8971F36E01D00E9F451 /* AdminOnDemand */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F8F4F8FB1F37128D00E9F451 /* AdminOnDemand.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AdminOnDemand.framework;
+			remoteRef = F8F4F8FA1F37128D00E9F451 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F8F4F9211F3717A600E9F451 /* AdminOnDemandHelper.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AdminOnDemandHelper.framework;
+			remoteRef = F8F4F9201F3717A600E9F451 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F8F4F8961F36E01D00E9F451 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F8F4F8941F36E01D00E9F451 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8F4F8A01F36E01D00E9F451 /* main.m in Sources */,
+				F8F4F89D1F36E01D00E9F451 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F8F4F95D1F3726F200E9F451 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AdminOnDemandHelper;
+			targetProxy = F8F4F95C1F3726F200E9F451 /* PBXContainerItemProxy */;
+		};
+		F8F4F95F1F3726F200E9F451 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AdminOnDemand;
+			targetProxy = F8F4F95E1F3726F200E9F451 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F8F4F8AA1F36E01D00E9F451 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F8F4F8AB1F36E01D00E9F451 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F8F4F8AD1F36E01D00E9F451 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AdminOnDemand/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.ygini.AdminOnDemand;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F8F4F8AE1F36E01D00E9F451 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AdminOnDemand/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.ygini.AdminOnDemand;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F8F4F8931F36E01D00E9F451 /* Build configuration list for PBXProject "AdminOnDemand" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8F4F8AA1F36E01D00E9F451 /* Debug */,
+				F8F4F8AB1F36E01D00E9F451 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8F4F8AC1F36E01D00E9F451 /* Build configuration list for PBXNativeTarget "AdminOnDemand" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8F4F8AD1F36E01D00E9F451 /* Debug */,
+				F8F4F8AE1F36E01D00E9F451 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F8F4F8901F36E01D00E9F451 /* Project object */;
+}
