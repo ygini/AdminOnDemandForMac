@@ -42,10 +42,16 @@
     [_connectionToService invalidate];
 }
 
-- (void)requestForScenarioWithName:(NSString*)scenarioName details:(NSDictionary *)scenario byUser:(NSString*)username andCompletionHandler:(void (^)(BOOL success, NSError *error))completionHandler {
+- (void)requestingUsername:(void(^)(NSString *username, NSError *error))completionHandler {
+    [[_connectionToService remoteObjectProxyWithErrorHandler:^(NSError * _Nonnull error) {
+        completionHandler(nil, error);
+    }] requestingUsername:completionHandler];
+}
+
+- (void)requestForScenarioWithName:(NSString*)scenarioName withCompletionHandler:(void (^)(BOOL success, NSError *error))completionHandler {
     [[_connectionToService remoteObjectProxyWithErrorHandler:^(NSError * _Nonnull error) {
         completionHandler(NO, error);
-    }] requestForScenarioWithName:scenarioName details:scenario byUser:username andCompletionHandler:completionHandler];
+    }] requestForScenarioWithName:scenarioName withCompletionHandler:completionHandler];
 }
 
 @end

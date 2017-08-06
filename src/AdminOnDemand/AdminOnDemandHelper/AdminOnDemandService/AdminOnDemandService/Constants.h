@@ -19,6 +19,8 @@ typedef enum : NSUInteger {
     kAODErrorCodeEmptyElevatedGroups = 1789,
     kAODErrorCodeRequesterNotAllowed,
     kAODErrorCodeRequesterNotFound,
+    kAODErrorCodeTooManyResults,
+    kAODErrorCodeTooManyValues,
 } kAODErrorCode;
 
 #endif /* Constants_h */

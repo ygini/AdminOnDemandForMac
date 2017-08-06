@@ -7,33 +7,64 @@
 //
 
 #import "AdminOnDemandService.h"
-
-#import <AdminOnDemand/AdminOnDemand.h>
+#import "AODToolbox.h"
+#import "Constants.h"
 #import "AdminOnDemandTracker.h"
+#import <OpenDirectory/OpenDirectory.h>
 
 @implementation AdminOnDemandService
 
-// This implements the example protocol. Replace the body of this class with the implementation of this service's protocol.
-- (void)requestForScenarioWithName:(NSString*)scenarioName details:(NSDictionary *)scenario byUser:(NSString*)username andCompletionHandler:(void (^)(BOOL success, NSError *error))completionHandler {
-    CFPropertyListRef prefs = CFPreferencesCopyValue((CFStringRef)scenarioName, (CFStringRef)@"com.github.ygini.AdminOnDemand", kCFPreferencesAnyUser, kCFPreferencesCurrentHost);
-    NSLog(@"TEST %@", prefs);
-    [[AODToolbox sharedInstance] preflightForScenarioWithName:scenarioName withDetails:scenario byUser:username andUseCompletionHandler:^(BOOL authorized, NSError *error, NSDictionary* scenarioDetails) {
+- (void)requestingUserRecord:(void(^)(ODRecord *requestingRecord, NSError *error))completionHandler {
+    
+    [[AODToolbox sharedInstance] recordForEUID:self.relatedConnection.effectiveUserIdentifier
+                         withCompletionHandler:completionHandler];
+}
+
+- (void)requestingUsername:(void(^)(NSString *username, NSError *error))completionHandler {
+    
+    [self requestingUserRecord:^(ODRecord *requestingRecord, NSError *error) {
+        if (error) {
+            completionHandler(nil, error);
+        } else {
+            NSError *error = nil;
+            NSString *username = [[AODToolbox sharedInstance] usernameForRecord:requestingRecord withError:&error];
+            
+            completionHandler(username, error);
+        }
+    }];
+}
+
+- (void)requestForScenarioWithName:(NSString*)scenarioName withCompletionHandler:(void (^)(BOOL success, NSError *error))completionHandler {
+    NSDictionary *scenario = nil;
+    
+    [self requestingUserRecord:^(ODRecord *requestingRecord, NSError *error) {
         if (error) {
             completionHandler(NO, error);
-        } else if (!authorized) {
-            completionHandler(NO, [NSError errorWithDomain:[[NSBundle mainBundle] bundleIdentifier]
-                                                      code:kAODErrorCodeRequesterNotAllowed
-                                                  userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"We've be requested to run scenario `%@`, however `%@` isn't allowed, so we won't do anything.", scenarioName, NSUserName()]}]);
+        } else if (requestingRecord) {
+            [[AODToolbox sharedInstance] preflightForScenarioWithName:scenarioName withDetails:scenario byUserWithRecord:requestingRecord andUseCompletionHandler:^(BOOL authorized, NSError *error, NSDictionary* scenarioDetails) {
+                if (error) {
+                    completionHandler(NO, error);
+                } else if (!authorized) {
+                    completionHandler(NO, [NSError errorWithDomain:[[NSBundle mainBundle] bundleIdentifier]
+                                                              code:kAODErrorCodeRequesterNotAllowed
+                                                          userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"We've be requested to run scenario `%@`, however `%@` isn't allowed, so we won't do anything.", scenarioName, NSUserName()]}]);
+                } else {
+                    NSDate *startDate = [NSDate date];
+                    NSTimeInterval timeInSeconds = [[scenarioDetails objectForKey:kAODScenarioTimeInSeconds] doubleValue];
+                    NSDate *endDate = [startDate dateByAddingTimeInterval:timeInSeconds];
+                    for (NSString *group in [scenarioDetails objectForKey:kAODScenarioRequester]) {
+                        
+                        [[AdminOnDemandTracker sharedInstance] authorizationGivenTo:group via:scenarioName at:startDate until:endDate by:[[AODToolbox sharedInstance] usernameForRecord:requestingRecord withError:nil]];
+                    }
+                    
+                    completionHandler(YES, nil);
+                }
+            }];
         } else {
-            NSDate *startDate = [NSDate date];
-            NSTimeInterval timeInSeconds = [[scenarioDetails objectForKey:kAODScenarioTimeInSeconds] doubleValue];
-            NSDate *endDate = [startDate dateByAddingTimeInterval:timeInSeconds];
-            for (NSString *group in [scenarioDetails objectForKey:kAODScenarioRequester]) {
-                
-                [[AdminOnDemandTracker sharedInstance] authorizationGivenTo:group via:scenarioName at:startDate until:endDate by:username];
-            }
-            
-            completionHandler(YES, nil);
+            completionHandler(NO, [NSError errorWithDomain:[[NSBundle mainBundle] bundleIdentifier]
+                                                      code:kAODErrorCodeRequesterNotFound
+                                                  userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"We've be requested to run scenario `%@`, we are unable to identify the requester.", scenarioName]}]);
+
         }
     }];
 }

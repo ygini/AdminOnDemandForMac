@@ -19,6 +19,8 @@ typedef void(^AODScenarioCompletionHandler)(BOOL succeed, NSError* error);
 - (NSArray*)arrayWithStringOrArray:(id)stringOrArray;
 - (void)recordForCurrentUser:(AODUserRecordRequestCompletionHandler)completionHandler;
 - (void)recordForUserWithRecordName:(NSString*)recordname andCompletionHandler:(AODUserRecordRequestCompletionHandler)completionHandler;
-- (void)preflightForScenarioWithName:(NSString*)scenarioName withDetails:(NSDictionary*)scenarioDetails byUser:(NSString*)username andUseCompletionHandler:(void (^)(BOOL authorized, NSError *error, NSDictionary* scenario))completionHandler;
-
+- (void)recordForEUID:(uid_t)euid withCompletionHandler:(AODUserRecordRequestCompletionHandler)completionHandler;
+- (void)singleRecordOfType:(ODRecordType)recordType matchingValue:(id)values forAttribute:(ODAttributeType)attribute withCompletionHandler:(AODUserRecordRequestCompletionHandler)completionHandler;
+- (void)preflightForScenarioWithName:(NSString*)scenarioName withDetails:(NSDictionary*)scenario byUserWithRecord:(ODRecord*)userRecord andUseCompletionHandler:(void (^)(BOOL authorized, NSError *error, NSDictionary* scenario))completionHandler;
+- (NSString*)usernameForRecord:(ODRecord *)record withError:(NSError**)error;
 @end

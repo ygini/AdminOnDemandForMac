@@ -308,10 +308,10 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = AdminOnDemandHelper/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks /Library/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.ygini.AdminOnDemandHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 			};
 			name = Debug;
 		};
@@ -327,10 +327,10 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = AdminOnDemandHelper/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks /Library/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.ygini.AdminOnDemandHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 			};
 			name = Release;
 		};

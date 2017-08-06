@@ -96,15 +96,29 @@
 }
 
 - (void)recordForUserWithRecordName:(NSString*)recordname andCompletionHandler:(AODUserRecordRequestCompletionHandler)completionHandler {
+    [self singleRecordOfType:kODRecordTypeUsers
+               matchingValue:recordname
+                forAttribute:kODAttributeTypeRecordName
+       withCompletionHandler:completionHandler];
+}
+
+- (void)recordForEUID:(uid_t)euid withCompletionHandler:(AODUserRecordRequestCompletionHandler)completionHandler {
+    [self singleRecordOfType:kODRecordTypeUsers
+               matchingValue:[NSString stringWithFormat:@"%d", euid]
+                forAttribute:kODAttributeTypeUniqueID
+       withCompletionHandler:completionHandler];
+}
+
+- (void)singleRecordOfType:(ODRecordType)recordType matchingValue:(id)values forAttribute:(ODAttributeType)attribute withCompletionHandler:(AODUserRecordRequestCompletionHandler)completionHandler {
     NSError *error = nil;
     AODQuery *requestedUserQuery = [AODQuery queryWithNode:self.odNode
-                                          forRecordTypes:kODRecordTypeUsers
-                                               attribute:kODAttributeTypeRecordName
-                                               matchType:kODMatchEqualTo
-                                             queryValues:recordname
-                                        returnAttributes:kODAttributeTypeAllAttributes
-                                          maximumResults:0
-                                                   error:&error];
+                                            forRecordTypes:recordType
+                                                 attribute:attribute
+                                                 matchType:kODMatchEqualTo
+                                               queryValues:values
+                                          returnAttributes:kODAttributeTypeAllAttributes
+                                            maximumResults:0
+                                                     error:&error];
     
     if (error) {
         completionHandler(nil, error);
@@ -115,14 +129,14 @@
                 completionHandler([results firstObject], nil);
             } else {
                 completionHandler(nil, [NSError errorWithDomain:[[NSBundle mainBundle] bundleIdentifier]
-                                                           code:kAODErrorCodeRequesterNotFound
-                                                       userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"We are unable to find the a coherent result when querying Open Directory for the current user `%@`. This is bad.", recordname]}]);
+                                                           code:kAODErrorCodeTooManyResults
+                                                       userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"We are unable to find a coherent result when querying Open Directory. This is bad."]}]);
             }
         }];
     }
 }
 
-- (void)preflightForScenarioWithName:(NSString*)scenarioName withDetails:(NSDictionary*)scenario byUser:(NSString*)username andUseCompletionHandler:(void (^)(BOOL authorized, NSError *error, NSDictionary* scenario))completionHandler {
+- (void)preflightForScenarioWithName:(NSString*)scenarioName withDetails:(NSDictionary*)scenario byUserWithRecord:(ODRecord*)userRecord andUseCompletionHandler:(void (^)(BOOL authorized, NSError *error, NSDictionary* scenario))completionHandler {
     NSMutableDictionary *scenarioDetails = [scenario mutableCopy];
     NSArray *elevatedGroups = [self arrayWithStringOrArray:[scenarioDetails objectForKey:kAODScenarioElevatedGroups]];
     
@@ -155,35 +169,28 @@
             if (error) {
                 completionHandler(NO, error, scenarioDetails);
             } else if ([results count] > 0) {
-                [self recordForUserWithRecordName:username andCompletionHandler:^(ODRecord *requestedUser, NSError *error) {
-                    if (requestedUser) {
-                        BOOL requestedUserIsMemberOfAtLeastOneAllowedRequester = NO;
-                        for (ODRecord *groupOfAllowedRequester in results) {
-                            NSError *error = nil;
-                            requestedUserIsMemberOfAtLeastOneAllowedRequester = [groupOfAllowedRequester isMemberRecord:requestedUser error:&error];
-                            if (requestedUserIsMemberOfAtLeastOneAllowedRequester) {
-                                break;
-                            }
-                        }
-                        
-                        if (requestedUserIsMemberOfAtLeastOneAllowedRequester) {
-                            
-                            NSNumber *timeInSeconds = [scenarioDetails objectForKey:kAODScenarioTimeInSeconds];
-                            if (!timeInSeconds) {
-                                [scenarioDetails setObject:[NSNumber numberWithInteger:30*60] forKey:kAODScenarioTimeInSeconds];
-                            }
-                            
-                            completionHandler(YES, nil, scenarioDetails);
-                        } else {
-                            completionHandler(NO, [NSError errorWithDomain:[[NSBundle mainBundle] bundleIdentifier]
-                                                                      code:kAODErrorCodeRequesterNotAllowed
-                                                                  userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"We've be requested to run scenario `%@`, however `%@` isn't allowed, so we won't do anything.", scenarioName, username]}], scenarioDetails);
-                        }
-                        
-                    } else {
-                        completionHandler(NO, error, scenarioDetails);
+                BOOL requestedUserIsMemberOfAtLeastOneAllowedRequester = NO;
+                for (ODRecord *groupOfAllowedRequester in results) {
+                    NSError *error = nil;
+                    requestedUserIsMemberOfAtLeastOneAllowedRequester = [groupOfAllowedRequester isMemberRecord:userRecord error:&error];
+                    if (requestedUserIsMemberOfAtLeastOneAllowedRequester) {
+                        break;
                     }
-                }];
+                }
+                
+                if (requestedUserIsMemberOfAtLeastOneAllowedRequester) {
+                    
+                    NSNumber *timeInSeconds = [scenarioDetails objectForKey:kAODScenarioTimeInSeconds];
+                    if (!timeInSeconds) {
+                        [scenarioDetails setObject:[NSNumber numberWithInteger:30*60] forKey:kAODScenarioTimeInSeconds];
+                    }
+                    
+                    completionHandler(YES, nil, scenarioDetails);
+                } else {
+                    completionHandler(NO, [NSError errorWithDomain:[[NSBundle mainBundle] bundleIdentifier]
+                                                              code:kAODErrorCodeRequesterNotAllowed
+                                                          userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"We've be requested to run scenario `%@`, however `%@` isn't allowed, so we won't do anything.", scenarioName, [self usernameForRecord:userRecord withError:nil]]}], scenarioDetails);
+                }
             } else {
                 completionHandler(NO, [NSError errorWithDomain:[[NSBundle mainBundle] bundleIdentifier]
                                                           code:kAODErrorCodeRequesterNotAllowed
@@ -191,6 +198,15 @@
             }
         }];
     }
+}
+
+- (NSString*)usernameForRecord:(ODRecord *)record withError:(NSError**)error {
+    NSArray *values = [record valuesForAttribute:kODAttributeTypeRecordName error:error];
+    if ([values count] > 0) {
+        return [values firstObject];
+    }
+    
+    return nil;
 }
 
 @end

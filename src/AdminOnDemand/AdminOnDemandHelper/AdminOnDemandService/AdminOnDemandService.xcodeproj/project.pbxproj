@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F8E1D24E1F37754E002C06AC /* AODQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E1D24A1F37754E002C06AC /* AODQuery.m */; };
+		F8E1D24F1F37754E002C06AC /* AODToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E1D24C1F37754E002C06AC /* AODToolbox.m */; };
 		F8F4F9311F3717EB00E9F451 /* AdminOnDemandService.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4F9301F3717EB00E9F451 /* AdminOnDemandService.m */; };
 		F8F4F9331F3717EB00E9F451 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4F9321F3717EB00E9F451 /* main.m */; };
-		F8F4F9481F37182A00E9F451 /* AdminOnDemand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F4F9471F37182A00E9F451 /* AdminOnDemand.framework */; };
-		F8F4F94A1F37183800E9F451 /* AdminOnDemand.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = F8F4F9471F37182A00E9F451 /* AdminOnDemand.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8F4F95A1F371CF400E9F451 /* AdminOnDemandTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4F9591F371CF400E9F451 /* AdminOnDemandTracker.m */; };
 /* End PBXBuildFile section */
 
@@ -21,7 +21,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F8F4F94A1F37183800E9F451 /* AdminOnDemand.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -29,6 +28,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F8E1D2491F37754E002C06AC /* AODQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AODQuery.h; sourceTree = "<group>"; };
+		F8E1D24A1F37754E002C06AC /* AODQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AODQuery.m; sourceTree = "<group>"; };
+		F8E1D24B1F37754E002C06AC /* AODToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AODToolbox.h; sourceTree = "<group>"; };
+		F8E1D24C1F37754E002C06AC /* AODToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AODToolbox.m; sourceTree = "<group>"; };
+		F8E1D24D1F37754E002C06AC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		F8F4F92B1F3717EB00E9F451 /* AdminOnDemandService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = AdminOnDemandService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F4F92E1F3717EB00E9F451 /* AdminOnDemandServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdminOnDemandServiceProtocol.h; sourceTree = "<group>"; };
 		F8F4F92F1F3717EB00E9F451 /* AdminOnDemandService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdminOnDemandService.h; sourceTree = "<group>"; };
@@ -45,7 +49,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8F4F9481F37182A00E9F451 /* AdminOnDemand.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +75,11 @@
 		F8F4F92D1F3717EB00E9F451 /* AdminOnDemandService */ = {
 			isa = PBXGroup;
 			children = (
+				F8E1D2491F37754E002C06AC /* AODQuery.h */,
+				F8E1D24A1F37754E002C06AC /* AODQuery.m */,
+				F8E1D24B1F37754E002C06AC /* AODToolbox.h */,
+				F8E1D24C1F37754E002C06AC /* AODToolbox.m */,
+				F8E1D24D1F37754E002C06AC /* Constants.h */,
 				F8F4F92E1F3717EB00E9F451 /* AdminOnDemandServiceProtocol.h */,
 				F8F4F92F1F3717EB00E9F451 /* AdminOnDemandService.h */,
 				F8F4F9301F3717EB00E9F451 /* AdminOnDemandService.m */,
@@ -159,9 +167,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8E1D24F1F37754E002C06AC /* AODToolbox.m in Sources */,
 				F8F4F9331F3717EB00E9F451 /* main.m in Sources */,
 				F8F4F95A1F371CF400E9F451 /* AdminOnDemandTracker.m in Sources */,
 				F8F4F9311F3717EB00E9F451 /* AdminOnDemandService.m in Sources */,
+				F8E1D24E1F37754E002C06AC /* AODQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +272,7 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = AdminOnDemandService/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.ygini.AdminOnDemandService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -273,6 +284,7 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = AdminOnDemandService/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.ygini.AdminOnDemandService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

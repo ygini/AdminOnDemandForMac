@@ -10,6 +10,7 @@
 
 @protocol AdminOnDemandServiceProtocol
 
-- (void)requestForScenarioWithName:(NSString*)scenarioName details:(NSDictionary *)scenario byUser:(NSString*)username andCompletionHandler:(void (^)(BOOL success, NSError *error))completionHandler;
+- (void)requestingUsername:(void(^)(NSString *username, NSError *error))completionHandler;
+- (void)requestForScenarioWithName:(NSString*)scenarioName withCompletionHandler:(void (^)(BOOL success, NSError *error))completionHandler;
     
 @end
