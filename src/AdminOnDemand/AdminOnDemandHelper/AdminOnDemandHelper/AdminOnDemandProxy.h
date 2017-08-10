@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "AdminOnDemandServiceProtocol.h"
 
-@interface AdminOnDemandService : NSObject <AdminOnDemandServiceProtocol>
+@interface AdminOnDemandProxy : NSObject <AdminOnDemandServiceProtocol>
+
+@property NSXPCConnection *xpcService;
 
 + (instancetype)sharedInstance;
 

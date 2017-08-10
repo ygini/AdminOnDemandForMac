@@ -18,13 +18,38 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     
+    [AdminOnDemandProxy sharedInstance].xpcService.interruptionHandler = ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSAlert alertWithMessageText:@"XPC got interrupted"
+                        defaultButton:@"OK"
+                      alternateButton:nil
+                          otherButton:nil
+                 informativeTextWithFormat:@""] runModal];
+        });
+    };
+    
+    [AdminOnDemandProxy sharedInstance].xpcService.invalidationHandler = ^{
+       dispatch_async(dispatch_get_main_queue(), ^{
+           [[NSAlert alertWithMessageText:@"XPC got invalided"
+                         defaultButton:@"OK"
+                       alternateButton:nil
+                           otherButton:nil
+                informativeTextWithFormat:@""] runModal];
+       });
+
+    };
+    
     NSString *scenarioToUse = [[NSUserDefaults standardUserDefaults] stringForKey:kAODCommandLineSelector];
  
-    [[AdminOnDemandService sharedInstance] requestForScenarioWithName:scenarioToUse withCompletionHandler:^(BOOL success, NSError *error) {
+    [[AdminOnDemandProxy sharedInstance] requestForScenarioWithName:scenarioToUse withCompletionHandler:^(BOOL success, NSError *error) {
         if (error) {
-            NSAlert *alert = [NSAlert alertWithError:error];
-            [alert runModal];
-            [NSApplication.sharedApplication terminate:self];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSAlert *alert = [NSAlert alertWithError:error];
+                [alert runModal];
+                [NSApplication.sharedApplication terminate:self];
+            });
+            
         } else {
             [NSApplication.sharedApplication terminate:self];
         }

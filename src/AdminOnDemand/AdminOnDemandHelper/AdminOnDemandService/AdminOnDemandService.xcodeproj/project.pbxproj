@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F86132A51F3CC50000B9A555 /* AdminOnDemandHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86132A41F3CC50000B9A555 /* AdminOnDemandHelper.framework */; };
 		F8E1D24E1F37754E002C06AC /* AODQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E1D24A1F37754E002C06AC /* AODQuery.m */; };
 		F8E1D24F1F37754E002C06AC /* AODToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E1D24C1F37754E002C06AC /* AODToolbox.m */; };
 		F8F4F9311F3717EB00E9F451 /* AdminOnDemandService.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4F9301F3717EB00E9F451 /* AdminOnDemandService.m */; };
@@ -28,6 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F86132A21F3CC4F100B9A555 /* AdminOnDemandHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdminOnDemandHelper.framework; path = ../../../../../../../../../Library/Frameworks/AdminOnDemandHelper.framework; sourceTree = "<group>"; };
+		F86132A41F3CC50000B9A555 /* AdminOnDemandHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdminOnDemandHelper.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/AdminOnDemand-embjaqlhcbvhnmgqohhbpewbbhoo/Build/Products/Debug/AdminOnDemandHelper.framework"; sourceTree = "<group>"; };
 		F8E1D2491F37754E002C06AC /* AODQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AODQuery.h; sourceTree = "<group>"; };
 		F8E1D24A1F37754E002C06AC /* AODQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AODQuery.m; sourceTree = "<group>"; };
 		F8E1D24B1F37754E002C06AC /* AODToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AODToolbox.h; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F86132A51F3CC50000B9A555 /* AdminOnDemandHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +98,8 @@
 		F8F4F9461F37182A00E9F451 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F86132A41F3CC50000B9A555 /* AdminOnDemandHelper.framework */,
+				F86132A21F3CC4F100B9A555 /* AdminOnDemandHelper.framework */,
 				F8F4F9471F37182A00E9F451 /* AdminOnDemand.framework */,
 			);
 			name = Frameworks;
@@ -271,8 +277,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = AdminOnDemandService/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.ygini.AdminOnDemandService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -283,8 +292,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = AdminOnDemandService/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.ygini.AdminOnDemandService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

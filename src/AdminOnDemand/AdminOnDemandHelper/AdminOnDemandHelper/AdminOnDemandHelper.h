@@ -17,5 +17,5 @@ FOUNDATION_EXPORT const unsigned char AdminOnDemandHelperVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <AdminOnDemandHelper/PublicHeader.h>
 
 
-#import <AdminOnDemandHelper/AdminOnDemandService.h>
+#import <AdminOnDemandHelper/AdminOnDemandProxy.h>
 #import <AdminOnDemandHelper/AdminOnDemandServiceProtocol.h>

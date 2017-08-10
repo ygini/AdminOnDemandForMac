@@ -6,17 +6,14 @@
 //  Copyright © 2017 Yoann Gini. All rights reserved.
 //
 
-#import "AdminOnDemandService.h"
+#import "AdminOnDemandProxy.h"
 
 #import "AdminOnDemandServiceProtocol.h"
 
-@interface AdminOnDemandService () {
-    NSXPCConnection *_connectionToService;
-}
-
+@interface AdminOnDemandProxy ()
 @end
 
-@implementation AdminOnDemandService
+@implementation AdminOnDemandProxy
 
 + (instancetype)sharedInstance {
     static id sharedInstance = nil;
@@ -31,25 +28,25 @@
 {
     self = [super init];
     if (self) {
-        _connectionToService = [[NSXPCConnection alloc] initWithServiceName:@"com.github.ygini.AdminOnDemandService"];
-        _connectionToService.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(AdminOnDemandServiceProtocol)];
-        [_connectionToService resume];
+        _xpcService = [[NSXPCConnection alloc] initWithServiceName:@"com.github.ygini.AdminOnDemandService"];
+        _xpcService.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(AdminOnDemandServiceProtocol)];
+        [_xpcService resume];
     }
     return self;
 }
 
 - (void)terminate {
-    [_connectionToService invalidate];
+    [self.xpcService invalidate];
 }
 
 - (void)requestingUsername:(void(^)(NSString *username, NSError *error))completionHandler {
-    [[_connectionToService remoteObjectProxyWithErrorHandler:^(NSError * _Nonnull error) {
+    [[self.xpcService remoteObjectProxyWithErrorHandler:^(NSError * _Nonnull error) {
         completionHandler(nil, error);
     }] requestingUsername:completionHandler];
 }
 
 - (void)requestForScenarioWithName:(NSString*)scenarioName withCompletionHandler:(void (^)(BOOL success, NSError *error))completionHandler {
-    [[_connectionToService remoteObjectProxyWithErrorHandler:^(NSError * _Nonnull error) {
+    [[self.xpcService remoteObjectProxyWithErrorHandler:^(NSError * _Nonnull error) {
         completionHandler(NO, error);
     }] requestForScenarioWithName:scenarioName withCompletionHandler:completionHandler];
 }

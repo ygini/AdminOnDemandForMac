@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>LowPriorityIO</key>
+	<false/>
+	<key>MachServices</key>
+	<dict>
+		<key>com.github.ygini.AdminOnDemandService</key>
+		<true/>
+	</dict>
+	<key>Label</key>
+	<string>com.github.ygini.AdminOnDemandService</string>
+	<key>KeepAlive</key>
+	<true/>
+	<key>ProcessType</key>
+	<string>Adaptive</string>
+	<key>StandardOutPath</key>
+	<string>/Library/Logs/AdminOnDemandService.log</string>
+	<key>StandardErrorPath</key>
+	<string>/Library/Logs/AdminOnDemandService.log</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Library/Frameworks/AdminOnDemandHelper.framework/Versions/A/XPCServices/AdminOnDemandService.xpc/Contents/MacOS/AdminOnDemandService</string>
+	</array>
+</dict>
+</plist>

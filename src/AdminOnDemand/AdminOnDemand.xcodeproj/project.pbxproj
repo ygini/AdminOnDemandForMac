@@ -7,20 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F8E1D2451F3771B5002C06AC /* AdminOnDemandHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8E1D2441F3771B5002C06AC /* AdminOnDemandHelper.framework */; };
-		F8E1D2461F3773AD002C06AC /* AdminOnDemandHelper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8F4F9211F3717A600E9F451 /* AdminOnDemandHelper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F86132A11F3CC1C600B9A555 /* AdminOnDemandHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8E1D2441F3771B5002C06AC /* AdminOnDemandHelper.framework */; };
 		F8F4F89D1F36E01D00E9F451 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4F89C1F36E01D00E9F451 /* AppDelegate.m */; };
 		F8F4F8A01F36E01D00E9F451 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4F89F1F36E01D00E9F451 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F8E1D2471F3773B1002C06AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8F4F91C1F3717A500E9F451 /* AdminOnDemandHelper.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F8F4F9101F3717A500E9F451;
-			remoteInfo = AdminOnDemandHelper;
-		};
 		F8F4F9201F3717A600E9F451 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F8F4F91C1F3717A500E9F451 /* AdminOnDemandHelper.xcodeproj */;
@@ -29,20 +21,6 @@
 			remoteInfo = AdminOnDemandHelper;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		F8F4F8C61F37046800E9F451 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				F8E1D2461F3773AD002C06AC /* AdminOnDemandHelper.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F8E1D2441F3771B5002C06AC /* AdminOnDemandHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdminOnDemandHelper.framework; path = ../../../../../../../Library/Frameworks/AdminOnDemandHelper.framework; sourceTree = "<group>"; };
@@ -60,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8E1D2451F3771B5002C06AC /* AdminOnDemandHelper.framework in Frameworks */,
+				F86132A11F3CC1C600B9A555 /* AdminOnDemandHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,12 +109,10 @@
 				F8F4F8941F36E01D00E9F451 /* Sources */,
 				F8F4F8951F36E01D00E9F451 /* Frameworks */,
 				F8F4F8961F36E01D00E9F451 /* Resources */,
-				F8F4F8C61F37046800E9F451 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F8E1D2481F3773B1002C06AC /* PBXTargetDependency */,
 			);
 			name = AdminOnDemand;
 			productName = AdminOnDemand;
@@ -213,14 +189,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F8E1D2481F3773B1002C06AC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = AdminOnDemandHelper;
-			targetProxy = F8E1D2471F3773B1002C06AC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		F8F4F8AA1F36E01D00E9F451 /* Debug */ = {

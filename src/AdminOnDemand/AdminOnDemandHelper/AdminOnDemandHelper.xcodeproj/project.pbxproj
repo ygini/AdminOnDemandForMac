@@ -10,11 +10,18 @@
 		F8F4F9161F3717A500E9F451 /* AdminOnDemandHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = F8F4F9141F3717A500E9F451 /* AdminOnDemandHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F8F4F9451F37181100E9F451 /* AdminOnDemandService.xpc in Copy XPC Services */ = {isa = PBXBuildFile; fileRef = F8F4F93F1F3717EC00E9F451 /* AdminOnDemandService.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F8F4F9511F37197300E9F451 /* AdminOnDemandServiceProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = F8F4F9501F37197300E9F451 /* AdminOnDemandServiceProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8F4F9561F3719B300E9F451 /* AdminOnDemandService.h in Headers */ = {isa = PBXBuildFile; fileRef = F8F4F9541F3719B300E9F451 /* AdminOnDemandService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8F4F9571F3719B300E9F451 /* AdminOnDemandService.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4F9551F3719B300E9F451 /* AdminOnDemandService.m */; };
+		F8F4F9561F3719B300E9F451 /* AdminOnDemandProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = F8F4F9541F3719B300E9F451 /* AdminOnDemandProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8F4F9571F3719B300E9F451 /* AdminOnDemandProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4F9551F3719B300E9F451 /* AdminOnDemandProxy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F861329F1F3CC11F00B9A555 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8F4F93A1F3717EC00E9F451 /* AdminOnDemandService.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8F4F92A1F3717EB00E9F451;
+			remoteInfo = AdminOnDemandService;
+		};
 		F8F4F93E1F3717EC00E9F451 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F8F4F93A1F3717EC00E9F451 /* AdminOnDemandService.xcodeproj */;
@@ -44,8 +51,8 @@
 		F8F4F9151F3717A500E9F451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F4F93A1F3717EC00E9F451 /* AdminOnDemandService.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AdminOnDemandService.xcodeproj; path = AdminOnDemandService/AdminOnDemandService.xcodeproj; sourceTree = "<group>"; };
 		F8F4F9501F37197300E9F451 /* AdminOnDemandServiceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdminOnDemandServiceProtocol.h; path = AdminOnDemandService/AdminOnDemandService/AdminOnDemandServiceProtocol.h; sourceTree = SOURCE_ROOT; };
-		F8F4F9541F3719B300E9F451 /* AdminOnDemandService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminOnDemandService.h; sourceTree = "<group>"; };
-		F8F4F9551F3719B300E9F451 /* AdminOnDemandService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminOnDemandService.m; sourceTree = "<group>"; };
+		F8F4F9541F3719B300E9F451 /* AdminOnDemandProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminOnDemandProxy.h; sourceTree = "<group>"; };
+		F8F4F9551F3719B300E9F451 /* AdminOnDemandProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminOnDemandProxy.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +88,8 @@
 			children = (
 				F8F4F9501F37197300E9F451 /* AdminOnDemandServiceProtocol.h */,
 				F8F4F9141F3717A500E9F451 /* AdminOnDemandHelper.h */,
-				F8F4F9541F3719B300E9F451 /* AdminOnDemandService.h */,
-				F8F4F9551F3719B300E9F451 /* AdminOnDemandService.m */,
+				F8F4F9541F3719B300E9F451 /* AdminOnDemandProxy.h */,
+				F8F4F9551F3719B300E9F451 /* AdminOnDemandProxy.m */,
 				F8F4F9151F3717A500E9F451 /* Info.plist */,
 			);
 			path = AdminOnDemandHelper;
@@ -104,7 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8F4F9511F37197300E9F451 /* AdminOnDemandServiceProtocol.h in Headers */,
-				F8F4F9561F3719B300E9F451 /* AdminOnDemandService.h in Headers */,
+				F8F4F9561F3719B300E9F451 /* AdminOnDemandProxy.h in Headers */,
 				F8F4F9161F3717A500E9F451 /* AdminOnDemandHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +132,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				F86132A01F3CC11F00B9A555 /* PBXTargetDependency */,
 			);
 			name = AdminOnDemandHelper;
 			productName = AdminOnDemandHelper;
@@ -194,11 +202,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8F4F9571F3719B300E9F451 /* AdminOnDemandService.m in Sources */,
+				F8F4F9571F3719B300E9F451 /* AdminOnDemandProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F86132A01F3CC11F00B9A555 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AdminOnDemandService;
+			targetProxy = F861329F1F3CC11F00B9A555 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		F8F4F9171F3717A500E9F451 /* Debug */ = {
@@ -311,7 +327,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks /Library/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.ygini.AdminOnDemandHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = NO;
 			};
 			name = Debug;
 		};
@@ -330,7 +345,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks /Library/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.ygini.AdminOnDemandHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = NO;
 			};
 			name = Release;
 		};
