@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F86132A51F3CC50000B9A555 /* AdminOnDemandHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86132A41F3CC50000B9A555 /* AdminOnDemandHelper.framework */; };
 		F8E1D24E1F37754E002C06AC /* AODQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E1D24A1F37754E002C06AC /* AODQuery.m */; };
 		F8E1D24F1F37754E002C06AC /* AODToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E1D24C1F37754E002C06AC /* AODToolbox.m */; };
 		F8F4F9311F3717EB00E9F451 /* AdminOnDemandService.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4F9301F3717EB00E9F451 /* AdminOnDemandService.m */; };
@@ -52,7 +51,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F86132A51F3CC50000B9A555 /* AdminOnDemandHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +135,7 @@
 				TargetAttributes = {
 					F8F4F92A1F3717EB00E9F451 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = CRXPBZF3N4;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -276,7 +275,9 @@
 		F8F4F9381F3717EC00E9F451 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = CRXPBZF3N4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
@@ -284,6 +285,7 @@
 				INFOPLIST_FILE = AdminOnDemandService/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.ygini.AdminOnDemandService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -291,7 +293,9 @@
 		F8F4F9391F3717EC00E9F451 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = CRXPBZF3N4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
@@ -299,6 +303,7 @@
 				INFOPLIST_FILE = AdminOnDemandService/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.ygini.AdminOnDemandService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
